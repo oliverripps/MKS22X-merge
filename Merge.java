@@ -8,11 +8,18 @@ public class Merge{
     mergesort left side
     mergesort right side
     merge*/
-
-
+    //RECREATING Pseudocode
+    int middle=(data.length-1)/2;
+    mergesort(data,lo,hi);
+    if(low>=hi){
+      return;
+    }
+    mergesort(data,0,middle);
+    mergesort(data,middle+1,data.length-1);
+    
   }
   public static void mergesort(int[] data, int low, int hi){
-    
+
   }
 
 

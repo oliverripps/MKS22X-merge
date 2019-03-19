@@ -2,9 +2,27 @@ import java.util.*;
 import java.io.*;
 
 public class Merge{
+  public static void insertionSort(int arr[]) {
+    int i, key, j;
+    for (i = 1; i < arr.length; i++) {
+        key = arr[i];
+        j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
   /*sort the array from least to greatest value. This is a wrapper function*/
   public static void mergesort(int[] data){
+    if(data.length<x){
+      insertionsort(data);
+    }
+    else{
     mergesort(data, 0, data.length);
+  }
   }
   public static void mergesort(int[] data, int lo, int hi){
     int check=lo+1;
@@ -13,11 +31,14 @@ public class Merge{
      }
 
      int mid=(hi-2)/2+lo;
-    //Creating subarrays
-     //int[] lohalf = Arrays.copyOfRange(data, lo, (hi - lo)/2);
-     //int[] hihalf = Arrays.copyOfRange(data,(hi - lo)/2, hi);
-     int[] lohalf = Arrays.copyOfRange(data, lo, mid);
-     int[] hihalf = Arrays.copyOfRange(data,mid+1, hi);
+
+     //Creating subarrays
+     int[] lohalf = Arrays.copyOfRange(data, lo, (hi - lo)/2);
+     int[] hihalf = Arrays.copyOfRange(data,(hi - lo)/2, hi);
+
+     //int[] lohalf = Arrays.copyOfRange(data, lo, mid);
+     //int[] hihalf = Arrays.copyOfRange(data,mid+1, hi);
+
      //mergesort on each sub array
      mergesort(lohalf, 0, lohalf.length);
      mergesort(hihalf, 0, hihalf.length);

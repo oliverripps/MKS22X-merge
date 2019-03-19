@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Merge{
   /*sort the array from least to greatest value. This is a wrapper function*/
-  public static void mergesort(int[]data){
+  public static void mergesort(int[] data){
     mergesort(data, 0, data.length);
   }
   public static void mergesort(int[] data, int lo, int hi){
@@ -17,20 +17,26 @@ public class Merge{
      //mergesort on each sub array
      mergesort(lohalf, 0, lohalf.length);
      mergesort(hihalf, 0, hihalf.length);
+     //System.out.println("HI");
+
      int l = 0;
 	   int r = 0;
 	   int i = 0;
 
+
+     System.out.println(Arrays.toString(lohalf));
      //while neither has finished merging
 	   while(l<lohalf.length && r<hihalf.length && i<data.length){
        //if lohalf one is bigger, put that in for data and incriment
        if(lohalf[l]<=hihalf[r]){
          data[i]=lohalf[l];
+
          l++;
          i++;
        }
        //if hihalf one is bigger, put that in for data and incriment
-       if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){
+       //if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){
+       else{
          data[i]=hihalf[r];
          r++;
          i++;

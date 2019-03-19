@@ -14,9 +14,17 @@ public class Merge{
      //mergesort on each sub array
      mergesort(lohalf, 0, lohalf.length);
      mergesort(hihalf, 0, hihalf.length);
+     int l = 0;
+	   int r = 0;
+	   int i = 0;
+	   while(l < lohalf.length && r < hihalf.length && i < data.length){
+       if(lohalf[l]<=hihalf[r){
+         data[i]=lohalf[l];
+         l++;
+       }
+       i++;
+     }
 
-
-  }
 
 
 

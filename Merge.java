@@ -21,26 +21,36 @@ public class Merge{
 	   int r = 0;
 	   int i = 0;
 
+     //while neither has finished merging
 	   while(l<lohalf.length && r<hihalf.length && i<data.length){
+       //if lohalf one is bigger, put that in for data and incriment
        if(lohalf[l]<=hihalf[r){
          data[i]=lohalf[l];
          l++;
          i++;
        }
+       //if hihalf one is bigger, put that in for data and incriment
        if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){
          data[i]=hihalf[r];
          r++;
          i++;
        }
      }
+     //once one of them has fully merged, if upperhalf still isnt merged, merge everything
      while(r<hihalf.length && i<data.length){
-       data[i]=right[r];
+       data[i]=hihalfr];
        r++;
        i++;
      }
-
+     //if lower half is not fully merged, merge everything
+     while(l<hihalf.length && i<data.length){
+       data[i] = hihalf[l];
+       l++;
+       i++;
+     }
 
 	}
+
 
 
 

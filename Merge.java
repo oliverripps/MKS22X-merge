@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Merge{
   /*sort the array from least to greatest value. This is a wrapper function*/
   public static void mergesort(int[]data){
@@ -17,13 +20,21 @@ public class Merge{
      int l = 0;
 	   int r = 0;
 	   int i = 0;
-	   while(l < lohalf.length && r < hihalf.length && i < data.length){
+
+	   while(l<lohalf.length && r<hihalf.length && i<data.length){
        if(lohalf[l]<=hihalf[r){
          data[i]=lohalf[l];
          l++;
+         i++;
        }
-       i++;
+       if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){
+         data[i]=hihalf[r];
+         r++;
+         i++;
+       }
      }
+	
+	}
 
 
 

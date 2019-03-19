@@ -6,8 +6,8 @@ public class Merge{
   public static void mergesort(int[]data){
     mergesort(data, 0, data.length);
   }
-  public static void mergesort(int[] data, int low, int hi){
-    int check=low+1;
+  public static void mergesort(int[] data, int lo, int hi){
+    int check=lo+1;
     if(check>= hi) {
        return;
      }
@@ -24,7 +24,7 @@ public class Merge{
      //while neither has finished merging
 	   while(l<lohalf.length && r<hihalf.length && i<data.length){
        //if lohalf one is bigger, put that in for data and incriment
-       if(lohalf[l]<=hihalf[r){
+       if(lohalf[l]<=hihalf[r]){
          data[i]=lohalf[l];
          l++;
          i++;
@@ -38,7 +38,7 @@ public class Merge{
      }
      //once one of them has fully merged, if upperhalf still isnt merged, merge everything
      while(r<hihalf.length && i<data.length){
-       data[i]=hihalfr];
+       data[i]=hihalf[r];
        r++;
        i++;
      }

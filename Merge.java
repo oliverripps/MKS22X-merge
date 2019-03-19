@@ -33,7 +33,13 @@ public class Merge{
          i++;
        }
      }
-	
+     while(r<hihalf.length && i<data.length){
+       data[i]=right[r];
+       r++;
+       i++;
+     }
+
+
 	}
 
 

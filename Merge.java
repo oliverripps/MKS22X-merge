@@ -11,9 +11,13 @@ public class Merge{
     if(check>= hi) {
        return;
      }
+
+     int mid=(hi-2)/2+lo;
     //Creating subarrays
-     int[] lohalf = Arrays.copyOfRange(data, lo, (hi - lo)/2);
-     int[] hihalf = Arrays.copyOfRange(data,(hi - lo)/2, hi);
+     //int[] lohalf = Arrays.copyOfRange(data, lo, (hi - lo)/2);
+     //int[] hihalf = Arrays.copyOfRange(data,(hi - lo)/2, hi);
+     int[] lohalf = Arrays.copyOfRange(data, lo, mid);
+     int[] hihalf = Arrays.copyOfRange(data,mid+1, hi);
      //mergesort on each sub array
      mergesort(lohalf, 0, lohalf.length);
      mergesort(hihalf, 0, hihalf.length);
@@ -24,7 +28,10 @@ public class Merge{
 	   int i = 0;
 
 
-     System.out.println(Arrays.toString(lohalf));
+     //System.out.print("Low Half:");
+     System.out.println(Arrays.toString(data));
+     //System.out.print("High Half:");
+     //System.out.println(Arrays.toString(hihalf));
      //while neither has finished merging
 	   while(l<lohalf.length && r<hihalf.length && i<data.length){
        //if lohalf one is bigger, put that in for data and incriment

@@ -8,7 +8,7 @@ public class Driver {
 
     int[] data = new int[]{6,2,6,8,3,2,1,7,4,53,5,65,3};
     Merge.mergesort(data);
-    System.out.println(Arrays.toString(data));
+    //System.out.println(Arrays.toString(data));
 		/*System.out.println("Size\t\tPerformance");
 
 		long stime, qtime, btime;

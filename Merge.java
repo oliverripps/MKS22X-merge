@@ -22,12 +22,12 @@ public class Merge{
       curr[i]=data[i];
     }
 
-    /*if(data.length<x){
-      insertionsort(data);
+    if(data.length<170){
+      insertionSort(data);
     }
-    else{*/
+    else{
     mergesort(data,curr, 0, data.length-1);
-  //}
+  }
   }
   public static void mergesort(int[] data, int[] curr, int lo, int hi){
     int check=lo;
@@ -91,6 +91,40 @@ public class Merge{
      }
 
 	}
+  public static void main(String[]args){
+  System.out.println("Size\t\tMax Value\tquick/buisin ratio ");
+  //int[]MAX_LIST = {1000000000,500,10};
+//  for(int MAX : MAX_LIST){
+    for(int size = 50; size < 500; size+=10){
+      long qtime=0;
+      long btime=0;
+      //average of 5 sorts.
+      for(int trial = 0 ; trial <=10000; trial++){
+        int []data1 = new int[size];
+        int []data2 = new int[size];
+        for(int i = 0; i < data1.length; i++){
+          data1[i] = (int)(Math.random()*100);
+          data2[i] = data1[i];
+        }
+        long t1,t2;
+        t1 = System.currentTimeMillis();
+        Merge.mergesort(data2);
+        t2 = System.currentTimeMillis();
+        qtime += t2 - t1;
+        t1 = System.currentTimeMillis();
+        Merge.insertionSort(data1);
+        t2 = System.currentTimeMillis();
+        btime+= t2 - t1;
+        if(!Arrays.equals(data1,data2)){
+          System.out.println("FAIL TO SORT!");
+          System.exit(0);
+        }
+      }
+      System.out.println(size +"\t\t"+"\t"+1.0*qtime/btime);
+    }
+    System.out.println();
+
+}
 
 
 

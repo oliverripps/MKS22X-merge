@@ -6,10 +6,7 @@ public class Driver {
 
 	public static void main(String[] args) {
 
-    int[] data = new int[]{6,2,6,8,3,2,1,7,4,53,5,65,3};
-    Merge.mergesort(data);
-    //System.out.println(Arrays.toString(data));
-		/*System.out.println("Size\t\tPerformance");
+    System.out.println("Size\t\tPerformance");
 
 		long stime, qtime, btime;
 		float ratio_sum = 0;
@@ -42,6 +39,6 @@ public class Driver {
 			ratio_sum += 1.0*qtime/btime;
 			System.out.printf("%d\t\t%.3f\n", size, 1.0*qtime/btime);
 		}
-		System.out.printf("\nAverage\t\t%.3f\n", ratio_sum/6);*/
+		System.out.printf("\nAverage\t\t%.3f\n", ratio_sum/6);
 	}
 }

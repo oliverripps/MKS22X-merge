@@ -74,9 +74,8 @@ public class Merge{
        //if hihalf one is bigger, put that in for data and incriment
        //if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){
        else{
-         data[i]=hihalf[r];
+         data[x+r]=hihalf[mid+r+1];
          r++;
-         i++;
        }
      }
      //once one of them has fully merged, if upperhalf still isnt merged, merge everything

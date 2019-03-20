@@ -22,20 +22,20 @@ public class Merge{
       curr[i]=data[i];
     }
 
-    if(data.length<x){
+    /*if(data.length<x){
       insertionsort(data);
     }
-    else{
+    else{*/
     mergesort(data,curr, 0, data.length);
+  //}
   }
-  }
-  public static void mergesort(int[] data, int lo, int hi){
-    int check=lo+1;
+  public static void mergesort(int[] data, int[] curr, int lo, int hi){
+    int check=lo;
     if(check>= hi) {
        return;
      }
 
-     int mid=(hi-2)/2+lo;
+     int mid=(hi-low)/2;
 
      //Creating subarrays
      int[] lohalf = Arrays.copyOfRange(data, lo, (hi - lo)/2);
@@ -45,9 +45,14 @@ public class Merge{
      //int[] hihalf = Arrays.copyOfRange(data,mid+1, hi);
 
      //mergesort on each sub array
-     mergesort(lohalf, 0, lohalf.length);
-     mergesort(hihalf, 0, hihalf.length);
+     //mergesort(lohalf, 0, lohalf.length);
+     //mergesort(hihalf, 0, hihalf.length);
+     mergesort(curr,data, lo, mid);
+     mergesort(curr,data,mid+1,hi);
+     mergeFinal(data,curr,low,mid,high);
      //System.out.println("HI");
+   }
+   private static void mergeFinal(int[] data, int[] curr,int lo,int mid, int hi){
 
      int l = 0;
 	   int r = 0;
@@ -55,17 +60,16 @@ public class Merge{
 
 
      //System.out.print("Low Half:");
-     System.out.println(Arrays.toString(data));
+     //System.out.println(Arrays.toString(data));
      //System.out.print("High Half:");
      //System.out.println(Arrays.toString(hihalf));
      //while neither has finished merging
-	   while(l<lohalf.length && r<hihalf.length && i<data.length){
+	   while(l<mid-lo+1 && r<hi-mid && i<data.length){
        //if lohalf one is bigger, put that in for data and incriment
-       if(lohalf[l]<=hihalf[r]){
-         data[i]=lohalf[l];
-
+       int x=lo+l;
+       if(curr[x]<curr[mid+r+1]){
+         data[x+r]=lohalf[x];
          l++;
-         i++;
        }
        //if hihalf one is bigger, put that in for data and incriment
        //if(l<lohalf.length && r<hihalf.length && i<data.length && lohalf[l]>hihalf[r]){

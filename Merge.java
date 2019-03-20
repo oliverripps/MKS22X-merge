@@ -65,8 +65,8 @@ public class Merge{
      //System.out.println(Arrays.toString(hihalf));
      //while neither has finished merging
 	   while(l<mid-lo+1 && r<hi-mid && i<data.length){
-       //if lohalf one is bigger, put that in for data and incriment
        int x=lo+l;
+       //if lohalf one is bigger, put that in for data and incriment
        if(curr[x]<curr[mid+r+1]){
          data[x+r]=lohalf[x];
          l++;
@@ -79,16 +79,14 @@ public class Merge{
        }
      }
      //once one of them has fully merged, if upperhalf still isnt merged, merge everything
-     while(r<hihalf.length && i<data.length){
-       data[i]=hihalf[r];
-       r++;
-       i++;
+     while(l<mid-lo+1){
+       data[lo+l+r]=curr[lo+l];
+       l++;
      }
      //if lower half is not fully merged, merge everything
-     while(l<hihalf.length && i<data.length){
-       data[i] = hihalf[l];
-       l++;
-       i++;
+     while(r<hi-mid){
+       data[lo+l+r] = curr[mid+r+1];
+       r++;
      }
 
 	}
